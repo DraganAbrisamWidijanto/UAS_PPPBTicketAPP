@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/dashboardFragment"
+        android:title="Beranda"
+        android:icon="@drawable/baseline_home_24"
+        app:showAsAction="withText|always"/>
+
+    <item
+        android:id="@+id/destinationFragment"
+        android:title="Destinasi"
+        android:icon="@drawable/baseline_tour_24"
+        app:showAsAction="withText|always"/>
+
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Profile"
+        android:icon="@drawable/baseline_profile_24"
+        app:showAsAction="withText|always"/>
+
+    <item
+        android:id="@+id/CRUDFragment"
+        android:title="CRUD"
+        android:icon="@drawable/baseline_admin_panel_settings_24"
+        app:showAsAction="withText|always"/>
+</menu>

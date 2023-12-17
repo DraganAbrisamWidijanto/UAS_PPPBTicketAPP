@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".RiwayatPesananFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/toolbar"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/backtoticketfragmen"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/baseline_arrow_back_24" />
+
+    <TextView
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="13dp"
+        android:layout_toEndOf="@+id/backtoticketfragmen"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Riwayat Pesanan"
+        android:textSize="20dp" />
+
+    <ScrollView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="10dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Pesanan Sudah Selesai"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_bold"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RVTiketAktif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- TextView untuk pesan jika tidak pernah melakukan pesanan -->
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="144dp"
+                android:src="@drawable/tiket"
+                android:id="@+id/imageNoActiveTicket"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profileFragmentName"
+                android:text="Anda belum memiliki riwayat pesanan"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:textColor="#1E293B"
+                android:visibility="gone"
+                />
+
+            <TextView
+                android:id="@+id/textNoActiveTicketdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:gravity="center"
+                android:text="Setelah anda melakukan perjalanan, Riwayat tiket akan muncul disini"
+                android:visibility="gone" />
+
+            <!-- Tombol pesan jika tidak ada tiket aktif -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="25dp"
+                android:text="Pesan Tiket"
+                android:id="@+id/btnPesanTiket3"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_button"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

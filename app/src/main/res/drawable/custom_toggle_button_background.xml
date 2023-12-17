@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- State when button is pressed -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!-- Customize the pressed state background color -->
+            <solid android:color="#b4b4b4" /> <!-- Ganti dengan warna yang diinginkan -->
+            <!-- Customize the pressed state border color and width -->
+            <stroke android:color="#636363" android:width="2dp" /> <!-- Ganti dengan warna dan ketebalan garis yang diinginkan -->
+            <!-- Customize the pressed state corner radius -->
+            <corners android:radius="8dp" /> <!-- Ganti dengan radius sudut yang diinginkan -->
+        </shape>
+    </item>
+    <!-- Default state -->
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Customize the default state background color -->
+            <solid android:color="#ececec" /> <!-- Ganti dengan warna yang diinginkan -->
+            <!-- Customize the default state border color and width -->
+            <stroke android:color="#636363" android:width="2dp" /> <!-- Ganti dengan warna dan ketebalan garis yang diinginkan -->
+            <!-- Customize the default state corner radius -->
+            <corners android:radius="8dp" /> <!-- Ganti dengan radius sudut yang diinginkan -->
+        </shape>
+    </item>
+</selector>

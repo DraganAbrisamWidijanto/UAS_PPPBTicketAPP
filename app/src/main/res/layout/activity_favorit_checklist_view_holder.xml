@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".FavoritChecklistViewHolderActivity">
+
+
+    <!-- ini untuk viewholder destinasi favorit yang akan
+     di favoritkan, jika hati nya di tekan,
+     maka akan muncul di fragment dashboard,
+     cek yang ke hidden tuu.....-->
+
+
+    <!-- Gambarnya ada di drawable jkt, sby, jgj, bdg -->
+    <!-- Ni gatau merah merah kenapa-->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewDestinasi"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewDestinasi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/jakarta" />
+
+        <TextView
+            android:id="@+id/textViewDestinasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:shadowColor="#80000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:text="Jakarta"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- ToggleButton di kanan bawah CardView digunakan untuk memilih favorit-->
+    <ToggleButton
+        android:id="@+id/heartfavorite"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/baseline_favoritedisable_border_24"
+        android:elevation="4dp"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@id/cardViewDestinasi"
+        app:layout_constraintEnd_toEndOf="@id/cardViewDestinasi" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

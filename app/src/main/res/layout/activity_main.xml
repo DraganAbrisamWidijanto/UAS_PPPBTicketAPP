@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="186dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/firstplane" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Getting Started"
+        android:textSize="30dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textStyle="bold"
+        android:paddingTop="20dp"/>
+
+    <TextView
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="25dp"
+        android:gravity="center"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="15dp"
+        android:text="Selamat datang di aplikasi pemesanan tiket kereta kami! Dapatkan pengalaman perjalanan yang nyaman dan mudah dengan memilih tiket kereta api yang sesuai dengan kebutuhan Anda. Silakan pilih salah satu opsi di bawah ini untuk melanjutkan:"></TextView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_button"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:id="@+id/btn_register"></androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_button"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:id="@+id/btn_login"></androidx.appcompat.widget.AppCompatButton>
+</LinearLayout>

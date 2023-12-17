@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation.xml"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.utsdragan.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment2_to_inputRencanaFragment"
+            app:destination="@id/inputRencanaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="com.example.utsdragan.TicketFragment"
+        android:label="fragment_ticket"
+        tools:layout="@layout/fragment_ticket" >
+        <action
+            android:id="@+id/action_ticketFragment2_to_inputRencanaFragment"
+            app:destination="@id/inputRencanaFragment" />
+        <action
+            android:id="@+id/action_ticketFragment2_to_riwayatPesananFragment"
+            app:destination="@id/riwayatPesananFragment" />
+        <action
+            android:id="@+id/action_ticketFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.utsdragan.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/destinationFragment"
+        android:name="com.example.utsdragan.DestinationFragment"
+        android:label="fragment_destination"
+        tools:layout="@layout/fragment_destination" >
+        <action
+            android:id="@+id/action_destinationFragment_to_inputRencanaFragment"
+            app:destination="@id/inputRencanaFragment" />
+        <action
+            android:id="@+id/action_destinationFragment_to_favoritChecklistFragment"
+            app:destination="@id/favoritChecklistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputRencanaFragment"
+        android:name="com.example.utsdragan.InputRencanaFragment"
+        android:label="fragment_input_rencana"
+        tools:layout="@layout/fragment_input_rencana" >
+        <action
+            android:id="@+id/action_inputRencanaFragment_to_ticketFragment"
+            app:destination="@id/ticketFragment" />
+        <action
+            android:id="@+id/action_inputRencanaFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/riwayatPesananFragment"
+        android:name="com.example.utsdragan.RiwayatPesananFragment"
+        android:label="fragment_riwayat_pesanan"
+        tools:layout="@layout/fragment_riwayat_pesanan" >
+        <action
+            android:id="@+id/action_riwayatPesananFragment_to_ticketFragment2"
+            app:destination="@id/ticketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/admincrudEditorPlusadminFragment"
+        android:name="com.example.utsdragan.AdmincrudEditorPlusadminFragment"
+        android:label="fragment_admincrud_editor_plusadmin"
+        tools:layout="@layout/fragment_admincrud_editor_plusadmin" >
+        <action
+            android:id="@+id/action_admincrudEditorPlusadminFragment_to_admincrudPlusadminFragment"
+            app:destination="@id/admincrudPlusadminFragment" />
+        <action
+            android:id="@+id/action_admincrudEditorPlusadminFragment_to_CRUDFragment"
+            app:destination="@id/CRUDFragment" />
+        <action
+            android:id="@+id/action_admincrudEditorPlusadminFragment_to_CRUDFragment2"
+            app:destination="@id/CRUDFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/admincrudDestinasiFragment"
+        android:name="com.example.utsdragan.AdmincrudDestinasiFragment"
+        android:label="fragment_admincrud_destinasi"
+        tools:layout="@layout/fragment_admincrud_destinasi" >
+        <action
+            android:id="@+id/action_admincrudDestinasiFragment_to_admincrudEditorDestinasiFragment"
+            app:destination="@id/admincrudEditorDestinasiFragment" />
+        <action
+            android:id="@+id/action_admincrudDestinasiFragment_to_admincrudEditorDestinasiFragment2"
+            app:destination="@id/admincrudEditorDestinasiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/admincrudEditorDestinasiFragment"
+        android:name="com.example.utsdragan.AdmincrudEditorDestinasiFragment"
+        android:label="fragment_admincrud_editor_destinasi"
+        tools:layout="@layout/fragment_admincrud_editor_destinasi" >
+        <action
+            android:id="@+id/action_admincrudEditorDestinasiFragment_to_admincrudDestinasiFragment"
+            app:destination="@id/admincrudDestinasiFragment" />
+        <action
+            android:id="@+id/action_admincrudEditorDestinasiFragment_to_CRUDFragment"
+            app:destination="@id/CRUDFragment" />
+        <action
+            android:id="@+id/action_admincrudEditorDestinasiFragment_to_CRUDFragment2"
+            app:destination="@id/CRUDFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/admincrudPlusadminFragment"
+        android:name="com.example.utsdragan.AdmincrudPlusadminFragment"
+        android:label="fragment_admincrud_plusadmin"
+        tools:layout="@layout/fragment_admincrud_plusadmin" >
+        <action
+            android:id="@+id/action_admincrudPlusadminFragment_to_admincrudEditorPlusadminFragment"
+            app:destination="@id/admincrudEditorPlusadminFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favoritChecklistFragment"
+        android:name="com.example.utsdragan.FavoritChecklistFragment"
+        android:label="fragment_favorit_checklist"
+        tools:layout="@layout/fragment_favorit_checklist" >
+        <action
+            android:id="@+id/action_favoritChecklistFragment_to_destinationFragment"
+            app:destination="@id/destinationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/CRUDFragment"
+        android:name="com.example.utsdragan.CRUDFragment"
+        android:label="fragment_crud"
+        tools:layout="@layout/fragment_crud" >
+        <action
+            android:id="@+id/action_CRUDFragment_to_admincrudEditorDestinasiFragment"
+            app:destination="@id/admincrudEditorDestinasiFragment" />
+        <action
+            android:id="@+id/action_CRUDFragment_to_admincrudEditorPlusadminFragment"
+            app:destination="@id/admincrudEditorPlusadminFragment" />
+    </fragment>
+</navigation>

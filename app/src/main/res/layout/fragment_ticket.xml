@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TicketFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tiket Aktif Saya"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:fontFamily="@font/poppins_regular"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- Tombol menuju halaman tiket yg sudah tidak aktif(lewat tanggal) -->
+            <ImageView
+                android:id="@+id/btnTiketTidakAktif"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/baseline_view_timeline_24" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RVTiketAktif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!-- TextView untuk pesan jika tidak ada tiket aktif -->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="144dp"
+            android:src="@drawable/tiket"
+            android:id="@+id/imageNoActiveTicket"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profileFragmentName"
+            android:text="Belum ada tiket aktif"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:fontFamily="@font/poppins_regular"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:textColor="#1E293B"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/textNoActiveTicketdesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:gravity="center"
+            android:text="Setelah mengatur daftar perjalanan, Anda dapat melihat tiket aktif Anda di sini."
+            android:visibility="gone" />
+
+        <!-- Tombol pesan jika tidak ada tiket aktif -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingHorizontal="25dp"
+            android:text="Pesan Tiket"
+            android:id="@+id/btnPesanTiket2"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_button"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "364621157792",
+    "project_id": "uasdragan",
+    "storage_bucket": "uasdragan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364621157792:android:62384f2046e4bfdc16c0c5",
+        "android_client_info": {
+          "package_name": "com.example.utsdragan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBff_4t5pPtoL50uGppaF9TMMGINUtd1Qk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
