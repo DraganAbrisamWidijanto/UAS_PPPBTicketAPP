@@ -26,7 +26,10 @@ class LoginFragment : Fragment() {
 
         with(binding) {
             btnLogin.setOnClickListener {
-                mainActivity.getAkun(usernamelogin.text.toString())
+                val usernameInput = usernamelogin.text.toString()
+                val passwordInput = passwordlogin.text.toString()
+
+                mainActivity.getAkun(usernameInput, passwordInput)
             }
         }
     }

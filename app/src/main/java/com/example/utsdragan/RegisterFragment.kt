@@ -36,16 +36,28 @@ class RegisterFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
         with(binding) {
 
-            btnsimpandestinasicrud.setOnClickListener {
-                val akun = Akun(
-                    username = username.text.toString(),
-                    email = email.text.toString(),
-                    password = password.text.toString(),
-                    nim = nim.text.toString(),
-                    tanggal = tanggal.text.toString(),
-                )
-                mainActivity.registerUser(akun)
-                container.goToFragment(0)
+            btnsimpanakunbaru.setOnClickListener {
+                val usernameInput = username.text.toString()
+                val emailInput = email.text.toString()
+                val passwordInput = password.text.toString()
+                val nimInput = nim.text.toString()
+                val tanggalInput = tanggal.text.toString()
+
+                if (usernameInput.isEmpty() || emailInput.isEmpty() || passwordInput.isEmpty() || nimInput.isEmpty() || tanggalInput.isEmpty()) {
+                    // Menampilkan pesan jika ada kolom yang belum diisi
+                    Toast.makeText(context, "Harap isi semua kolom terlebih dahulu", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Melakukan registrasi jika semua kolom sudah diisi
+                    val akun = Akun(
+                        username = usernameInput,
+                        email = emailInput,
+                        password = passwordInput,
+                        nim = nimInput,
+                        tanggal = tanggalInput,
+                    )
+                    mainActivity.registerUser(akun)
+                    container.goToFragment(0)
+                }
             }
 
             tanggal.setOnClickListener {

@@ -365,12 +365,7 @@
                     android:paddingTop="20dp"
                     android:fontFamily="@font/poppins_bold"></TextView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_regular"
-                    android:text="Rp"
-                    android:textColor="@color/blue"></TextView>
+
 
                 <TextView
                     android:id="@+id/harga"

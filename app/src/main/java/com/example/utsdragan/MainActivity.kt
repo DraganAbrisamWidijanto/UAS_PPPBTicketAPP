@@ -213,22 +213,37 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    fun getAkun(username: String) {
+    fun getAkun(username: String, password: String) {
         accountCollection.whereEqualTo("username", username).limit(1).get()
-            .addOnSuccessListener {
-                query ->
-                val data = query.documents[0].data
+            .addOnSuccessListener { query ->
+                if (!query.isEmpty) {
+                    val data = query.documents[0].data
+                    if (data != null) {
+                        val storedPassword = data["password"].toString()
+                        if (password == storedPassword) {
+                            // Password valid, lanjutkan proses login
+                            sharedPreferences.saveUsername(data["username"].toString())
+                            sharedPreferences.saveEmail(data["email"].toString())
+                            sharedPreferences.savePassword(data["password"].toString())
+                            sharedPreferences.saveEmail(data["email"].toString())
+                            sharedPreferences.saveNim(data["nim"].toString())
+                            if (data["tipe"] == "admin") {
+                                sharedPreferences.setAdmin()
+                            }
 
-                sharedPreferences.saveUsername(data?.get("username").toString())
-                sharedPreferences.saveEmail(data?.get("email").toString())
-                sharedPreferences.savePassword(data?.get("password").toString())
-                sharedPreferences.saveEmail(data?.get("email").toString())
-                sharedPreferences.saveNim(data?.get("nim").toString())
-                if(data?.get("tipe") == "admin") {
-                    sharedPreferences.setAdmin()
+                            login(sharedPreferences.getUsername(), sharedPreferences.getPassword())
+                        } else {
+                            // Password tidak valid, tampilkan pesan toast
+                            Toast.makeText(this, "Password salah", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        // Tampilkan pesan toast bahwa data akun tidak valid
+                        Toast.makeText(this, "Data akun tidak valid", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Tampilkan pesan toast bahwa data akun tidak ditemukan
+                    Toast.makeText(this, "Data akun tidak ditemukan", Toast.LENGTH_SHORT).show()
                 }
-
-                login(sharedPreferences.getUsername(), sharedPreferences.getPassword())
             }
             .addOnFailureListener {
                 it.printStackTrace()

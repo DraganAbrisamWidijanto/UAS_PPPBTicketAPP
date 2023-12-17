@@ -15,14 +15,14 @@
         app:showAsAction="withText|always"/>
 
     <item
-        android:id="@+id/profileFragment"
-        android:title="Profile"
-        android:icon="@drawable/baseline_profile_24"
-        app:showAsAction="withText|always"/>
-
-    <item
         android:id="@+id/CRUDFragment"
         android:title="CRUD"
         android:icon="@drawable/baseline_admin_panel_settings_24"
+        app:showAsAction="withText|always"/>
+
+    <item
+        android:id="@+id/profileFragment"
+        android:title="Profile"
+        android:icon="@drawable/baseline_profile_24"
         app:showAsAction="withText|always"/>
 </menu>

@@ -85,6 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:id="@+id/profileFragmentName"
                 android:text="Anda belum memiliki riwayat pesanan"
                 android:textStyle="bold"

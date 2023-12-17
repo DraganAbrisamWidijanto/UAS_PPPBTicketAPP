@@ -51,7 +51,8 @@ class InputRencanaFragment : Fragment(), DatePickerDialog.OnDateSetListener, Tim
 
         val asalArray = arrayOf("Gambir-Jakarta","Tugu-Yogyakarta", "Surabaya Kota-Surabaya")
         val tujuanArray = arrayOf("Gambir-Jakarta","Tugu-Yogyakarta", "Surabaya Kota-Surabaya")
-        val namaArray = arrayOf("KA Taksaka", "KA Argo Lawu", "KA Argo Dwipangga", "KA Argo Bromo Anggrek")
+        val namaArray = arrayOf(
+            "KA Argo Bromo Anggrek", "KA Argo Dwipangga", "KA Argo Lawu", "KA Argo Muria", "KA Argo Parahyangan", "KA Taksaka")
         val kelasArray = arrayOf("Ekonomi", "Eksekutif")
         val fran = mutableListOf<String>()
 
@@ -117,7 +118,7 @@ class InputRencanaFragment : Fragment(), DatePickerDialog.OnDateSetListener, Tim
             }
 
             // Menampilkan harga pada TextView
-            hargaTextView.text = "Harga: Rp $harga"
+            hargaTextView.text = "Rp$harga"
 
             // Menampilkan pemberitahuan jika paket telah ditambahkan
             if (harga > 0) {
@@ -187,7 +188,6 @@ class InputRencanaFragment : Fragment(), DatePickerDialog.OnDateSetListener, Tim
         }
 
         binding.backtohomefragmen.setOnClickListener {
-            notifyTicket()
             val navController = findNavController()
             navController.navigate(R.id.action_inputRencanaFragment_to_dashboardFragment)
         }
