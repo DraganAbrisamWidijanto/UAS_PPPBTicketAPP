@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import android.widget.TextView
 
+//kode dari uts
+
 class Register : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var usernameEditText: EditText

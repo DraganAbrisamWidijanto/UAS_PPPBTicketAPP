@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
  * Kelas `Login` merupakan aktivitas yang memungkinkan pengguna untuk melakukan login ke aplikasi.
  * Pengguna memasukkan nama pengguna (username) dan kata sandi (password) untuk masuk.
  */
+
+//kode dari uts
+
 class Login : AppCompatActivity() {
     private lateinit var usernameEditText: EditText // Input field untuk memasukkan nama pengguna
     private lateinit var passwordEditText: EditText // Input field untuk memasukkan kata sandi

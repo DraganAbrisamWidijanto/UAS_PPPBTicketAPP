@@ -13,6 +13,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+/**
+ * Fragment untuk menampilkan riwayat pesanan pengguna.
+ */
 
 class RiwayatPesananFragment : Fragment() {
 
@@ -28,12 +31,15 @@ class RiwayatPesananFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Mendapatkan instance dari MainActivity dan daftar tiket pengguna
         val mainActivity = MainActivity.getInstance()
         val list = mainActivity.getTicket(mainActivity.getSharedPreferences().getUsername())
         val pass = mutableListOf<Ticket>()
 
+        // Mengamati perubahan pada daftar tiket
         list.observe(viewLifecycleOwner) {
             for(i in it) {
+                // Menyaring tiket yang tanggalnya sudah berlalu
                 if(isDatePassed(i.tanggal.toString())) {
                     pass.add(i)
                 }
@@ -41,11 +47,13 @@ class RiwayatPesananFragment : Fragment() {
 
             with(binding) {
                 if(pass.isEmpty()) {
+                    // Menampilkan elemen UI yang sesuai jika tidak ada tiket yang aktif
                     imageNoActiveTicket.visibility = View.VISIBLE
                     profileFragmentName.visibility = View.VISIBLE
                     textNoActiveTicketdesc.visibility = View.VISIBLE
                     RVTiketAktif.visibility = View.GONE
                 } else {
+                    // Menampilkan daftar tiket yang aktif
                     imageNoActiveTicket.visibility = View.GONE
                     profileFragmentName.visibility = View.GONE
                     textNoActiveTicketdesc.visibility = View.GONE
@@ -56,33 +64,37 @@ class RiwayatPesananFragment : Fragment() {
                     }
                 }
             }
-
-
         }
         with(binding) {
+            // Konfigurasi aksi klik untuk kembali ke halaman tiket
             backtoticketfragmen.setOnClickListener {
                 findNavController().navigate(R.id.action_riwayatPesananFragment_to_ticketFragment2)
             }
         }
     }
 
+    /**
+     * Memeriksa apakah tanggal tiket sudah berlalu atau belum.
+     *
+     * @param dateString Tanggal tiket dalam format "dd/MM/yyyy".
+     * @return `true` jika tanggal tiket sudah berlalu, `false` jika tidak.
+     */
     fun isDatePassed(dateString: String): Boolean {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
         try {
-            // Parse the input date string
+            // Mengurai string tanggal input
             val inputDate = dateFormat.parse(dateString)
 
-            // Get the current date
+            // Mendapatkan tanggal saat ini
             val currentDate = Date()
 
-            // Compare the input date with the current date
+            // Membandingkan tanggal input dengan tanggal saat ini
             return inputDate?.before(currentDate) == true
         } catch (e: Exception) {
-            // Handle parsing errors, e.g., if the input date is in an invalid format
+            // Menangani kesalahan parsing, misalnya jika format tanggal input tidak valid
             e.printStackTrace()
             return false
         }
     }
-
 }

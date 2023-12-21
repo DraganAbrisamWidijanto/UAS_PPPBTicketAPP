@@ -17,21 +17,28 @@ import java.util.Locale
 class AdmincrudEditorPlusadminFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var binding: FragmentAdmincrudEditorPlusadminBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Mengembang layout untuk fragmen ini
         binding = FragmentAdmincrudEditorPlusadminBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Mendapatkan instance dari MainActivity
         val mainActivity = MainActivity.getInstance()
+
         with(binding) {
+            // Menerima data "id" dari Bundle
             val received = arguments?.getString("id")
-            if(!received.isNullOrBlank()) {
+
+            // Jika data diterima tidak kosong, mengisi teks input dengan data yang diterima
+            if (!received.isNullOrBlank()) {
                 usernameadmin.setText(arguments?.getString("username"))
                 emailadmin.setText(arguments?.getString("email"))
                 nimAdmin.setText(arguments?.getString("nim"))
@@ -39,8 +46,10 @@ class AdmincrudEditorPlusadminFragment : Fragment(), DatePickerDialog.OnDateSetL
                 passwordAmind.setText(arguments?.getString("password"))
             }
 
+            // Menangani klik tombol untuk menyimpan atau memperbarui data admin
             btnsimpandestinasicrud.setOnClickListener {
-                if(!received.isNullOrBlank()) {
+                if (!received.isNullOrBlank()) {
+                    // Jika dalam mode edit, memperbarui data admin
                     mainActivity.updateUser(
                         Akun(
                             id = received,
@@ -53,6 +62,7 @@ class AdmincrudEditorPlusadminFragment : Fragment(), DatePickerDialog.OnDateSetL
                         )
                     )
                 } else {
+                    // Jika dalam mode tambah data, menambahkan data admin baru
                     mainActivity.registerUser(
                         Akun(
                             username = usernameadmin.text.toString(),
@@ -64,17 +74,24 @@ class AdmincrudEditorPlusadminFragment : Fragment(), DatePickerDialog.OnDateSetL
                         )
                     )
                 }
+
+                // Navigasi kembali ke CRUDFragment setelah menyimpan atau memperbarui data
                 findNavController().navigate(R.id.action_admincrudEditorPlusadminFragment_to_CRUDFragment)
             }
+
+            // Menangani klik tombol untuk kembali ke CRUDFragment
             backtoadmincruddestinasifragment.setOnClickListener {
                 findNavController().navigate(R.id.action_admincrudEditorPlusadminFragment_to_CRUDFragment)
             }
+
+            // Menangani klik input tanggal untuk menampilkan date picker
             tanggal.setOnClickListener {
                 showDatePicker()
             }
         }
     }
 
+    // Menampilkan date picker dialog
     private fun showDatePicker() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -85,6 +102,7 @@ class AdmincrudEditorPlusadminFragment : Fragment(), DatePickerDialog.OnDateSetL
         datePickerDialog.show()
     }
 
+    // Callback ketika tanggal dipilih pada date picker
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         val selectedDate = Calendar.getInstance()
         selectedDate.set(Calendar.YEAR, year)
@@ -93,6 +111,7 @@ class AdmincrudEditorPlusadminFragment : Fragment(), DatePickerDialog.OnDateSetL
         updateSelectedDate(selectedDate.time)
     }
 
+    // Memperbarui teks input tanggal dengan tanggal yang dipilih
     private fun updateSelectedDate(date: Date) {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val formattedDate = dateFormat.format(date)

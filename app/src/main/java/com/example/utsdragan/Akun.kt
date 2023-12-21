@@ -9,3 +9,5 @@ data class Akun(
     var tanggal: String = "",
     var tipe: String = "user",
     )
+
+//untuk register

@@ -26,10 +26,15 @@ class CRUDFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Inisialisasi adapter untuk TabLayout dan ViewPager2
         tabAdapter = TLAdapter2(requireActivity())
+
+        // Menghubungkan adapter dengan ViewPager2
         with(binding) {
             viewPager2.adapter = tabAdapter
             viewpager2 = viewPager2
+
+            // Menyesuaikan TabLayout dengan ViewPager2
             TabLayoutMediator(scadi, viewPager2) { tab, position ->
                 tab.text = when(position) {
                     1 -> "CRUD Admin"

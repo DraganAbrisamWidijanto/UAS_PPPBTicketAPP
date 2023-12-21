@@ -15,6 +15,9 @@ import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
 
+//kode dari uts
+
+
 class Input_rencana : AppCompatActivity() {
 
     // Fungsi ini dipanggil saat aktivitas (halaman) dibuat.

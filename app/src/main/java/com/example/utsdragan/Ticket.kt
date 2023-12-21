@@ -4,10 +4,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+// Mendefinisikan entitas Ticket untuk Room Database.
 @Entity(tableName = "ticket")
 data class Ticket(
+    // ID unik yang dihasilkan secara otomatis.
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
+    // Nama pengguna sampai harga tiket.
     @ColumnInfo(name = "username")
     val username: String = "",
     @ColumnInfo(name = "nama")
@@ -22,7 +25,7 @@ data class Ticket(
     val tujuan: String = "",
     @ColumnInfo(name = "harga")
     val harga: Int = 0,
+    // List pesanan tambahan yang mungkin dipilih oleh pengguna.
     @ColumnInfo(name = "pesananTambahan")
     val pesananTambahan: List<String> = emptyList(),
-
 )

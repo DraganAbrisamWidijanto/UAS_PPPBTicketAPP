@@ -24,7 +24,7 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        // Mengembang tata letak untuk fragment ini menggunakan View Binding
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -33,50 +33,60 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
+            // Menambahkan listener untuk tombol btnPesanTiket
             btnPesanTiket.setOnClickListener {
+                // Mendapatkan NavController dan navigasi ke InputRencanaFragment
                 val navController = findNavController()
                 navController.navigate(R.id.action_dashboardFragment2_to_inputRencanaFragment)
             }
-
+            // Menambahkan listener untuk tombol showdatepickerpls
             showdatepickerpls.setOnClickListener {
+                // Memanggil fungsi showDatePicker() untuk menampilkan dialog pemilih tanggal
                 showDatePicker()
             }
         }
     }
 
+    // Fungsi untuk menampilkan dialog pemilih tanggal
     private fun showDatePicker() {
+        // Mendapatkan tanggal saat ini
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
+        // Membuat instance DatePicker dengan tanggal saat ini
         val datePicker = DatePicker(requireContext())
         datePicker.init(year, month, day, DatePicker.OnDateChangedListener { _, year, monthOfYear, dayOfMonth ->
+            // Menangani perubahan tanggal dengan memanggil onDateChanged()
             onDateChanged(year, monthOfYear, dayOfMonth)
         })
 
-        // Create a custom dialog to host the DatePicker
+        // Membuat dialog kustom untuk menampilkan DatePicker
         val dialog = androidx.appcompat.app.AlertDialog.Builder(requireContext())
             .setView(datePicker)
             .setPositiveButton("OK") { _, _ ->
-                // Optional: Handle "OK" button click if needed
+                // Opsional: Menangani klik tombol "OK" jika diperlukan
             }
             .setNegativeButton("Cancel", null)
             .create()
-
+        // Menampilkan dialog
         dialog.show()
     }
 
+    // Fungsi yang dipanggil saat tanggal berubah pada DatePicker
     private fun onDateChanged(year: Int, month: Int, day: Int) {
+        // Membuat instance Calendar dengan tanggal yang dipilih
         val selectedDate = Calendar.getInstance()
         selectedDate.set(Calendar.YEAR, year)
         selectedDate.set(Calendar.MONTH, month)
         selectedDate.set(Calendar.DAY_OF_MONTH, day)
 
+        // Format tanggal yang dipilih
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val formattedDate = dateFormat.format(selectedDate.time)
 
-        // Show a Toast with the selected date
+        // Menampilkan Toast dengan tanggal yang dipilih ada rentang tanggal yang sudah dipesan atau tidak
         val dates = MainActivity.getInstance().getTicket(MainActivity.getInstance().getSharedPreferences().getUsername())
         dates.observe(viewLifecycleOwner) {
             if (it != null) {

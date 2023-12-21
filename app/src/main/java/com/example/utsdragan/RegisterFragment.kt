@@ -14,7 +14,10 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
-
+/**
+ * Fragment untuk melakukan registrasi pengguna baru.
+ * Implementasi dari DatePickerDialog.OnDateSetListener untuk menangani pemilihan tanggal lahir pengguna.
+ */
 class RegisterFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var binding: FragmentRegisterBinding
@@ -30,12 +33,13 @@ class RegisterFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Mendapatkan instance dari MainActivity, ContainerLoginActivity, dan preferences yang terkait
         val mainActivity = MainActivity.getInstance()
         val container = ContainerLoginActivity.getInstance()
         val sharedPreferences = mainActivity.getSharedPreferences()
 
         with(binding) {
-
+            // Konfigurasi aksi klik tombol simpan akun baru
             btnsimpanakunbaru.setOnClickListener {
                 val usernameInput = username.text.toString()
                 val emailInput = email.text.toString()
@@ -56,10 +60,12 @@ class RegisterFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                         tanggal = tanggalInput,
                     )
                     mainActivity.registerUser(akun)
+                    //menuju ke fragment login
                     container.goToFragment(0)
                 }
             }
 
+            // Konfigurasi aksi klik pada tanggal untuk menampilkan date picker
             tanggal.setOnClickListener {
                 showDatePicker()
             }
@@ -67,6 +73,7 @@ class RegisterFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         }
     }
 
+    //Menampilkan dialog pemilih tanggal.
     private fun showDatePicker() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -77,6 +84,7 @@ class RegisterFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         datePickerDialog.show()
     }
 
+    //Callback yang dipanggil saat pengguna memilih tanggal.
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
         val selectedDate = Calendar.getInstance()
         selectedDate.set(Calendar.YEAR, year)
@@ -96,10 +104,10 @@ class RegisterFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         }
     }
 
+    //Memperbarui tampilan dengan menetapkan tanggal yang dipilih.
     private fun updateSelectedDate(date: Date) {
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val formattedDate = dateFormat.format(date)
         binding.tanggal.setText(formattedDate)
     }
-
 }

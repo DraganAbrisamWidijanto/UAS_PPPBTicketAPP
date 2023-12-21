@@ -14,6 +14,7 @@ class ContainerLoginActivity : AppCompatActivity() {
 
     companion object {
         private var instance: ContainerLoginActivity? = null
+        // Fungsi untuk mendapatkan instance dari ContainerLoginActivity
         fun getInstance(): ContainerLoginActivity {
             return instance!!
         }
@@ -21,13 +22,18 @@ class ContainerLoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Menginisialisasi tata letak dengan menggunakan View Binding
         binding = ActivityContainerLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Menginisialisasi TLAdapter untuk ViewPager2
         tlAdapter = TLAdapter(this)
+
+        // Menghubungkan TLAdapter dengan ViewPager2
         with(binding) {
             viewpager.adapter = tlAdapter
             viewPager2 = viewpager
+            // Menyesuaikan TabLayout dengan ViewPager2
             TabLayoutMediator(tablayout, viewpager) { tab, position ->
                 tab.text = when(position) {
                     1 -> "Register"
@@ -37,6 +43,7 @@ class ContainerLoginActivity : AppCompatActivity() {
             }.attach()
         }
 
+        // Mendapatkan data dari intent (jika ada)
         val intentdata = intent.extras?.get("number")
 
         if (intentdata == 1) {
@@ -45,6 +52,7 @@ class ContainerLoginActivity : AppCompatActivity() {
             viewPager2.setCurrentItem(0, true)
         }
 
+        // Menetapkan tampilan awal berdasarkan data intent
         instance = this
     }
 
@@ -53,6 +61,7 @@ class ContainerLoginActivity : AppCompatActivity() {
         finish()
     }
 
+    // Fungsi untuk perpindahan antar fragment dalam ViewPager2
     fun goToFragment(item: Int) {
         viewPager2.setCurrentItem(item, true)
     }
